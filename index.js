@@ -46,13 +46,13 @@ console.log(num1)
 Task 1c - Convert Strings to Numbers
 
 Do the following:   
-   1. Declare a string type variable with the value of "1999"
-   2. Convert the string value of "1999" to a integer value of 1999
+   1. Declare a string type variable with the value of '1999'
+   2. Convert the string value of '1999' to a integer value of 1999
    3. Console log the result
 
    HINT: look up the Number method
 */
-let birthday = "1999"
+let birthday = '1999'
 let birthDay = Number(birthday)
 console.log(birthDay)
 
@@ -148,27 +148,39 @@ console.log(hungryDog(15,1))
 // Rock, Paper, Scissors - Let's play against the computer!
 /*
 Create a global variable that randomly generates the computer's choice
-Use Math.random to determine the computers choice (Math.random gives a random number between 0 and 1)
+Use Math.random to determine the Computers choice (Math.random gives a random number between 0 and 1)
 
-NOTE: Computer must be a global variable. It will be passed into the function as an argument when the function is invoked. 
+NOTE: computer must be a global variable. It will be passed into the function as an argument when the function is invoked. 
 
 HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 
 Use the game function below to do the following:
 1. Receive 2 parameters the user's choice and the computer's choice
 2. Return whether the user won, lost, or tied based on these rules of the game described below - the strings returned need to match the strings below exactly.
- - win should return "you win!"
- - lose should return "you lose!"
- - tie should return "it's a tie"
+ - win should return 'you win!'
+ - lose should return 'you lose!'
+ - tie should return 'it's a tie'
 
 RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors | Or there's a tie
 
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
+const computerArray = ['Scissors', 'Rock', 'Paper'];
+var random = Math.floor(Math.random() * 3)
+var computerChoice = computerArray[random]
+
 
 function game(user, computer){
-  /*add your code here*/
+  if (user === 'Scissors' && computer === 'Rock' || user === 'Rock' && computer === 'Paper' || user === 'Paper' && computer === 'Scissors'){
+    return 'you lose!'
+
+  } else if (computer === 'Scissors' && user === 'Rock' || computer === 'Rock' && user === 'Paper' || computer === 'Paper' && user === 'Scissors'){
+    return 'you win!'
+  } else if (computer === user){
+    return 'its a tie'
+  }
 }
+console.log(game('Scissors', computerChoice))
 
 
 
@@ -183,10 +195,10 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(Kilo){
+  return Kilo * 0.621371
 }
-
+console.log(miles(5))
 
 
 //Task 5b - Feet to CM
@@ -197,10 +209,10 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
-}
+function feet(cm){
+  return cm * 0.0328084}
 
+  console.log(feet(100))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -210,13 +222,17 @@ function feet(/*add your code here*/){
 Using the annoyingSong function below do the following:
 1. Receive a starting number and start the count down from the number received 
 2. At each invocation, it should RETURN this string (note: the tests are expecting the same string as below):
-    "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
+    '{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall'
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(num1){
+  var i = num1
+      while(i >0){
+         console.log(`${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i} bottles of soda on the wall`);
+         i--;
+      }
 }
-
+annoyingSong(10);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -233,9 +249,24 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(score){
+if (score >= 90){
+  console.log('you got an A')
+
+} else if (score >= 80 && score < 89){
+  console.log('you got a B')
+
+} else if (score >= 70 && score < 79){
+  console.log('you got a C')
+} 
+ else if (score >= 60 && score < 69){
+  console.log('you got a D')
+
+} else if (score < 60){
+  console.log('you got an F')
 }
+}
+console.log(grade(100))
 
 
 
